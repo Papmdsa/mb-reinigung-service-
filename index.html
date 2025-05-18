@@ -3,135 +3,381 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MB Reinigung & Service</title>
+  <title>MB Reinigung & Service | Professionelle Reinigung in Bamberg</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <style>
+  :root {
+    --primary: #0077B6;
+    --primary-dark: #005f99;
+    --secondary: #48CAE4;
+    --accent: #00B4D8;
+    --light: #F8F9FA;
+    --dark: #212529;
+    --gray: #6C757D;
+    --white: #FFFFFF;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --radius: 8px;
+  }
+  
   body {
-    font-family: Arial, sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin: 0;
-    background: #f0f0f0;
-    color: #333;
+    background: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
   }
+  
+  h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: var(--dark);
+  }
+  
   header {
-  background: white;
-  color: #000;
-  padding: 1rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-  }
-  .logo-box {
+    background: var(--white);
+    padding: 1rem 2rem;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
   }
-  .logo-box img {
-    height: 60px;
-    margin-right: 15px;
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
   }
-  .logo-text {
-    font-size: 1.4rem;
-    font-weight: bold;
+  
+  .logo {
+    height: 70px;
+    width: auto;
+    transition: transform 0.3s ease;
   }
+  
+  .logo:hover {
+    transform: scale(1.05);
+  }
+  
+  .text-block h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: var(--primary);
+  }
+  
+  .subline {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--gray);
+    font-weight: 500;
+  }
+  
   nav {
-    margin-top: 0.5rem;
-    flex-basis: 100%;
-    text-align: center;
+    display: flex;
+    gap: 2rem;
   }
+  
   nav a {
-    color: #007BBA;
-    margin: 0 1rem;
+    color: var(--primary);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 1.1rem;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
   }
+  
+  nav a:hover {
+    color: var(--primary-dark);
+  }
+  
+  nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+  }
+  
+  nav a:hover::after {
+    width: 100%;
+  }
+  
   .hero {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
-    padding: 3rem 2rem;
-    background: white;
-    margin: 2rem auto;
-    max-width: 1000px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    justify-content: space-between;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    color: var(--white);
+    margin: 0 auto;
+    max-width: 1200px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-top: 2rem;
+    margin-bottom: 3rem;
   }
-  .hero img {
-    width: 100%;
-    max-width: 300px;
-    margin: auto;
-  }
-  .hero-text {
+  
+  .hero-content {
     flex: 1;
-    padding: 1rem;
+    min-width: 300px;
+    padding: 2rem;
   }
+  
+  .hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+  }
+  
+  .hero-img {
+    flex: 1;
+    min-width: 300px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .hero-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  
+  .hero-img:hover img {
+    transform: scale(1.05);
+  }
+  
   section {
     padding: 2rem;
-    max-width: 1000px;
-    margin: auto;
+    max-width: 1200px;
+    margin: 2rem auto;
   }
-  .services, .why-us {
-    background: white;
-    border-radius: 10px;
-    margin: 1rem 0;
-    padding: 1rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  }
-  .kontakt {
-    background: white;
-    border-radius: 10px;
-    padding: 2rem;
+  
+  .section-title {
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-bottom: 3rem;
+    position: relative;
   }
-  .cta a {
-    display: inline-block;
-    background: #007BBA;
-    color: white;
-    padding: 0.8rem 1.5rem;
-    margin: 10px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
+  
+  .section-title::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 4px;
+    background: var(--primary);
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
   }
-  .cta a:hover {
-    background: #005f99;
-  }
-  footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 1rem;
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
     margin-top: 2rem;
   }
-  .logo-container {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.logo {
-  height: 60px; /* Größe des Logos */
-  width: auto;
-}
-
-.text-block h1 {
-  margin: 0;
-  font-size: 1.8rem;
-}
-
-.subline {
-  margin: 0;
-  font-size: 0.9rem;
-  color: #555;
-}
-
-</style>
+  
+  .service-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .service-card h3 {
+    color: var(--primary);
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  
+  .service-card h3::before {
+    content: '✓';
+    color: var(--primary);
+    font-size: 1.2rem;
+  }
+  
+  .benefits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .benefit-item {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .benefit-icon {
+    font-size: 1.8rem;
+    color: var(--primary);
+  }
+  
+  .kontakt {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+  
+  .contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .contact-method {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    background: var(--light);
+    min-width: 200px;
+    transition: transform 0.3s ease;
+  }
+  
+  .contact-method:hover {
+    transform: scale(1.05);
+  }
+  
+  .contact-icon {
+    font-size: 2rem;
+    color: var(--primary);
+  }
+  
+  .cta {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .cta a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--primary);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cta a:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  footer {
+    background: var(--dark);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+  }
+  
+  .footer-links a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: var(--secondary);
+  }
+  
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      text-align: center;
+      padding: 1rem;
+    }
+    
+    .logo-container {
+      margin-bottom: 1rem;
+      justify-content: center;
+    }
+    
+    nav {
+      margin-top: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .hero {
+      flex-direction: column;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    
+    .hero-content {
+      padding: 1rem;
+    }
+    
+    .hero h2 {
+      font-size: 2rem;
+    }
+    
+    .cta {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  </style>
 </head>
 <body>
 
@@ -140,64 +386,173 @@
     <img src="logo.png" alt="MB Reinigung & Service Logo" class="logo" />
     <div class="text-block">
       <h1>MB Reinigung & Service</h1>
-      <p class="subline">Professionelle Reinigungsdienste in Bamberg – zuverlässig & gründlich</p>
+      <p class="subline">Professionelle Reinigungsdienste in Bamberg – Präzision & Perfektion</p>
     </div>
   </div>
   <nav>
     <a href="#about">Über Uns</a>
     <a href="#services">Leistungen</a>
+    <a href="#benefits">Vorteile</a>
     <a href="#contact">Kontakt</a>
   </nav>
 </header>
 
+<main>
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Ihr professioneller Reinigungspartner in Bamberg</h2>
+      <p>Wir bieten maßgeschneiderte Reinigungslösungen für Privathaushalte und Unternehmen. Mit modernsten Methoden und umweltfreundlichen Produkten sorgen wir für makellose Sauberkeit.</p>
+      <div class="cta">
+        <a href="tel:01792081862">
+          <span>📞</span> Jetzt anrufen
+        </a>
+        <a href="mailto:mosajouria@gmail.com">
+          <span>📧</span> Angebot anfordern
+        </a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="mb.jpeg" alt="Professionelle Reinigung durch MB Reinigung & Service" />
+    </div>
+  </section>
 
-<section class="hero">
-  <img src="mb.jpeg" alt="MB Reinigung & Service" />
-  <div class="hero-text">
-    <h2>Professionelle Reinigungsdienste</h2>
-    <p>Zuverlässiger Reinigungsservice für Zuhause und Büro. Vertrauen Sie auf Erfahrung und Gründlichkeit.</p>
-  </div>
-</section>
+  <section id="about">
+    <h2 class="section-title">Über Uns</h2>
+    <p>MB Reinigung & Service steht seit Jahren für herausragende Reinigungsqualität in Bamberg und Umgebung. Unser Team aus erfahrenen Fachkräften verbindet deutsche Gründlichkeit mit modernsten Reinigungstechniken.</p>
+    <p>Wir verstehen, dass Sauberkeit mehr ist als nur Staubwischen – sie schafft Wohlbefinden, Professionalität und ein gesundes Umfeld. Daher gehen wir bei jedem Auftrag über die üblichen Standards hinaus.</p>
+  </section>
 
-<section id="about">
-  <h2>Über Uns</h2>
-  <p>MB Reinigung & Service, Zuverlässigkeit und persönlichen Service. Egal ob Wohn- oder Gewerbeobjekte – wir bringen Sauberkeit in jeden Raum.</p>
-</section>
+  <section id="services">
+    <h2 class="section-title">Unsere Leistungen</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Gebäudereinigung</h3>
+        <p>Komplette Reinigung von Gewerbeimmobilien mit individuell abgestimmten Konzepten für dauerhafte Sauberkeit.</p>
+      </div>
+      <div class="service-card">
+        <h3>Büroreinigung</h3>
+        <p>Tägliche oder wöchentliche Reinigung Ihrer Büroräume, angepasst an Ihre Arbeitszeiten und Bedürfnisse.</p>
+      </div>
+      <div class="service-card">
+        <h3>Fensterreinigung</h3>
+        <p>Streifenfreie Ergebnisse mit speziellen Techniken für Glasflächen aller Art, innen wie außen.</p>
+      </div>
+      <div class="service-card">
+        <h3>Treppenhausreinigung</h3>
+        <p>Gründliche Reinigung von Treppenhäusern, Fluren und Gemeinschaftsbereichen in Wohnanlagen.</p>
+      </div>
+      <div class="service-card">
+        <h3>Grundreinigung</h3>
+        <p>Intensive Tiefenreinigung für Neubezug, Renovierung oder als Saisonservice mit Spezialausrüstung.</p>
+      </div>
+      <div class="service-card">
+        <h3>Hausmeisterservice</h3>
+        <p>Umfassende Betreuung Ihrer Immobilie mit regelmäßigen Wartungs- und Kontrollarbeiten.</p>
+      </div>
+    </div>
+  </section>
 
-<section id="services" class="services">
-  <h2>Unsere Leistungen</h2>
-  <ul>
-    <li>🏢 Gebäudereinigung</li>
-    <li>🧼 Büroreinigung</li>
-    <li>🪟 Fensterreinigung</li>
-    <li>🏢 Treppenhausreinigung</li>
-    <li>🧽 Grund- & Sonderreinigung</li>
-    <li>🔧 Hausmeisterservice</li>
-  </ul>
-</section>
+  <section id="benefits">
+    <h2 class="section-title">Ihre Vorteile</h2>
+    <div class="benefits">
+      <div class="benefit-item">
+        <span class="benefit-icon">✓</span>
+        <div>
+          <h3>Zuverlässigkeit</h3>
+          <p>Pünktlichkeit und Termintreue sind für uns selbstverständlich.</p>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-icon">✓</span>
+        <div>
+          <h3>Transparente Preise</h3>
+          <p>Klare Kostenstruktur ohne versteckte Gebühren.</p>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-icon">✓</span>
+        <div>
+          <h3>Ökologische Reinigung</h3>
+          <p>Umweltschonende Produkte für Ihre Gesundheit und die Natur.</p>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-icon">✓</span>
+        <div>
+          <h3>Individuelle Lösungen</h3>
+          <p>Maßgeschneiderte Reinigungskonzepte für Ihre Bedürfnisse.</p>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-icon">✓</span>
+        <div>
+          <h3>Qualifiziertes Personal</h3>
+          <p>Geschulte Fachkräfte mit langjähriger Erfahrung.</p>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-icon">✓</span>
+        <div>
+          <h3>Flexible Termine</h3>
+          <p>Anpassung an Ihre Arbeitszeiten, auch abends oder am Wochenende.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section class="why-us">
-  <h2>Warum wir?</h2>
-  <ul>
-    <li>✅ Zuverlässig & pünktlich</li>
-    <li>✅ Faire Preise</li>
-    <li>✅ Umweltfreundliche Mittel</li>
-    <li>✅ Freundlicher Service</li>
-    <li>✅ Individuelle Angebote</li>
-  </ul>
-</section>
-
-<section id="kontakt" class="kontakt">
-  <h2>Kontakt</h2>
-  <p>Sie können uns jederzeit erreichen:</p>
-  <div class="cta">
-    <a href="tel:01792081862">📞 Jetzt anrufen</a>
-    <a href="mailto:mosajouria@gmail.com">📧 E-Mail schreiben</a>
-  </div>
-</section>
+  <section id="contact" class="kontakt">
+    <h2 class="section-title">Kontaktieren Sie uns</h2>
+    <p>Wir beraten Sie gerne persönlich und erstellen ein unverbindliches Angebot für Ihre individuellen Anforderungen.</p>
+    
+    <div class="contact-info">
+      <div class="contact-method">
+        <span class="contact-icon">📞</span>
+        <h3>Telefon</h3>
+        <a href="tel:01792081862">0179 2081862</a>
+      </div>
+      <div class="contact-method">
+        <span class="contact-icon">📧</span>
+        <h3>E-Mail</h3>
+        <a href="mailto:mosajouria@gmail.com">mosajouria@gmail.com</a>
+      </div>
+      <div class="contact-method">
+        <span class="contact-icon">🕒</span>
+        <h3>Servicezeiten</h3>
+        <p>Mo-Fr: 7-19 Uhr<br>Sa: 8-14 Uhr</p>
+      </div>
+    </div>
+    
+    <div class="cta">
+      <a href="tel:01792081862">
+        <span>📞</span> Jetzt anrufen
+      </a>
+      <a href="mailto:mosajouria@gmail.com">
+        <span>📧</span> E-Mail senden
+      </a>
+    </div>
+  </section>
+</main>
 
 <footer>
-  <p>&copy; 2025 MB Reinigung & Service –, Bamberg</p>
+  <div class="footer-content">
+    <div class="logo-container" style="justify-content: center;">
+      <img src="logo.png" alt="MB Reinigung & Service Logo" class="logo" style="height: 50px;" />
+      <div class="text-block">
+        <h1 style="color: white; font-size: 1.5rem;">MB Reinigung & Service</h1>
+      </div>
+    </div>
+    
+    <div class="footer-links">
+      <a href="#about">Über Uns</a>
+      <a href="#services">Leistungen</a>
+      <a href="#benefits">Vorteile</a>
+      <a href="#contact">Kontakt</a>
+      <a href="#">Impressum</a>
+      <a href="#">Datenschutz</a>
+    </div>
+    
+    <p>&copy; 2025 MB Reinigung & Service – Professionelle Reinigungsdienstleistungen in Bamberg</p>
+  </div>
 </footer>
 
 </body>
