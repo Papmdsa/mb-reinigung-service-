@@ -1,565 +1,494 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MB Reinigung & Service | Professionelle Reinigung in Bamberg</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MB Reinigung & Service – Professionelle Gebäudereinigung</title>
+  <meta name="description" content="MB Reinigung & Service – Zuverlässige Unterhalts-, Büro- und Glasreinigung. Transparent, pünktlich, professionell. Jetzt kostenloses Angebot anfordern." />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <style>
-  :root {
-    --primary: #0077B6;
-    --primary-dark: #005f99;
-    --secondary: #48CAE4;
-    --accent: #00B4D8;
-    --light: #F8F9FA;
-    --dark: #212529;
-    --gray: #6C757D;
-    --white: #FFFFFF;
-    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --radius: 8px;
-  }
-  
-  body {
-    font-family: 'Open Sans', sans-serif;
-    margin: 0;
-    background: var(--light);
-    color: var(--dark);
-    line-height: 1.6;
-  }
-  
-  h1, h2, h3, h4 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    color: var(--dark);
-  }
-  
-  header {
-    background: var(--white);
-    padding: 1rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    box-shadow: var(--shadow);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  
-  .logo-container {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-  }
-  
-  .logo {
-    height: 70px;
-    width: auto;
-    transition: transform 0.3s ease;
-  }
-  
-  .logo:hover {
-    transform: scale(1.05);
-  }
-  
-  .text-block h1 {
-    margin: 0;
-    font-size: 1.8rem;
-    color: var(--primary);
-  }
-  
-  .subline {
-    margin: 0;
-    font-size: 0.9rem;
-    color: var(--gray);
-    font-weight: 500;
-  }
-  
-  nav {
-    display: flex;
-    gap: 2rem;
-  }
-  
-  nav a {
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    position: relative;
-    padding: 0.5rem 0;
-    transition: color 0.3s ease;
-  }
-  
-  nav a:hover {
-    color: var(--primary-dark);
-  }
-  
-  nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--primary);
-    transition: width 0.3s ease;
-  }
-  
-  nav a:hover::after {
-    width: 100%;
-  }
-  
-  .hero {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    padding: 4rem 2rem;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-    color: var(--white);
-    margin: 0 auto;
-    max-width: 1200px;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    margin-top: 2rem;
-    margin-bottom: 3rem;
-  }
-  
-  .hero-content {
-    flex: 1;
-    min-width: 300px;
-    padding: 2rem;
-  }
-  
-  .hero h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--white);
-  }
-  
-  .hero p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    max-width: 600px;
-  }
-  
-  .hero-img {
-    flex: 1;
-    min-width: 300px;
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  }
-  
-  .hero-img img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.5s ease;
-  }
-  
-  .hero-img:hover img {
-    transform: scale(1.05);
-  }
-  
-  section {
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 2rem auto;
-  }
-  
-  .section-title {
-    text-align: center;
-    margin-bottom: 3rem;
-    position: relative;
-  }
-  
-  .section-title::after {
-    content: '';
-    position: absolute;
-    width: 80px;
-    height: 4px;
-    background: var(--primary);
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 2px;
-  }
-  
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-  
-  .service-card {
-    background: var(--white);
-    border-radius: var(--radius);
-    padding: 2rem;
-    box-shadow: var(--shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  .service-card h3 {
-    color: var(--primary);
-    margin-top: 0;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-  }
-  
-  .service-card h3::before {
-    content: '✓';
-    color: var(--primary);
-    font-size: 1.2rem;
-  }
-  
-  .benefits {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-  
-  .benefit-item {
-    background: var(--white);
-    border-radius: var(--radius);
-    padding: 1.5rem;
-    box-shadow: var(--shadow);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  
-  .benefit-icon {
-    font-size: 1.8rem;
-    color: var(--primary);
-  }
-  
-  .kontakt {
-    background: var(--white);
-    border-radius: var(--radius);
-    padding: 3rem 2rem;
-    text-align: center;
-    box-shadow: var(--shadow);
-  }
-  
-  .contact-info {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-  
-  .contact-method {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1.5rem;
-    border-radius: var(--radius);
-    background: var(--light);
-    min-width: 200px;
-    transition: transform 0.3s ease;
-  }
-  
-  .contact-method:hover {
-    transform: scale(1.05);
-  }
-  
-  .contact-icon {
-    font-size: 2rem;
-    color: var(--primary);
-  }
-  
-  .cta {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: 2rem;
-    flex-wrap: wrap;
-  }
-  
-  .cta a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: var(--primary);
-    color: var(--white);
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .cta a:hover {
-    background: var(--primary-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  }
-  
-  footer {
-    background: var(--dark);
-    color: var(--white);
-    text-align: center;
-    padding: 2rem;
-    margin-top: 4rem;
-  }
-  
-  .footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin: 1.5rem 0;
-    flex-wrap: wrap;
-  }
-  
-  .footer-links a {
-    color: var(--white);
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-  .footer-links a:hover {
-    color: var(--secondary);
-  }
-  
-  @media (max-width: 768px) {
-    header {
-      flex-direction: column;
-      text-align: center;
-      padding: 1rem;
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    .glass { backdrop-filter: blur(8px); background: rgba(255,255,255,0.75); }
+    /* Hover effect for all white bordered cards */
+    .rounded-2xl.border.bg-white:hover {
+      background-color: #ecfdf5; /* emerald-50 */
+      border-color: #a7f3d0;     /* emerald-200 */
+      transition: all 0.3s ease;
     }
-    
-    .logo-container {
-      margin-bottom: 1rem;
-      justify-content: center;
-    }
-    
-    nav {
-      margin-top: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    
+
+    /* ===== Hero Slideshow ===== */
     .hero {
-      flex-direction: column;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-    
-    .hero-content {
-      padding: 1rem;
-    }
-    
-    .hero h2 {
-      font-size: 2rem;
-    }
-    
-    .cta {
-      flex-direction: column;
+      position: relative;
+      min-height: 88vh;
+      display: flex;
       align-items: center;
+      overflow: hidden;
+      color: white;
     }
-  }
+    .slideshow {
+      position: absolute;
+      inset: 0;
+    }
+    .slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: fade 20s infinite;
+}
+
+.slide:nth-child(1) { animation-delay: 0s; }
+.slide:nth-child(2) { animation-delay: 5s; }
+.slide:nth-child(3) { animation-delay: 10s; }
+.slide:nth-child(4) { animation-delay: 15s; }
+
+@keyframes fade {
+  0%   { opacity: 0; }
+  5%   { opacity: 1; }
+  25%  { opacity: 1; }
+  30%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+
+    /* Logo smoothing for crisp edges */
+    img.logo { image-rendering: -webkit-optimize-contrast; }
   </style>
 </head>
-<body>
-
-<header>
-  <div class="logo-container">
-    <img src="logo.png" alt="MB Reinigung & Service Logo" class="logo" />
-    <div class="text-block">
-      <h1>MB Reinigung & Service</h1>
-      <p class="subline">Professionelle Reinigungsdienste in Bamberg – Präzision & Perfektion</p>
+<body class="bg-slate-50 text-slate-900">
+  <!-- Top Bar -->
+  <div class="hidden md:block bg-slate-900 text-white text-sm">
+    <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+      <p>Sauberkeit. Zuverlässigkeit. Service.</p>
+      <div class="space-x-6">
+        <a href="tel:+4999999999" class="hover:underline">Telefon: 0179 2081862</a>
+        <a href="mailto:kontakt@mb-reinigung-bamberg.de" class="hover:underline">kontakt@mb-reinigung-bamberg.de</a>
+      </div>
     </div>
   </div>
-  <nav>
-    <a href="#about">Über Uns</a>
-    <a href="#services">Leistungen</a>
-    <a href="#benefits">Vorteile</a>
-    <a href="#contact">Kontakt</a>
-  </nav>
-</header>
 
-<main>
-  <section class="hero">
-    <div class="hero-content">
-      <h2>Ihr professioneller Reinigungspartner in Bamberg</h2>
-      <p>Wir bieten maßgeschneiderte Reinigungslösungen für Privathaushalte und Unternehmen. Mit modernsten Methoden und umweltfreundlichen Produkten sorgen wir für makellose Sauberkeit.</p>
-      <div class="cta">
-        <a href="tel:01792081862">
-          <span>📞</span> Jetzt anrufen
-        </a>
-        <a href="mailto:oabu2078@gmail.com">
-          <span>📧</span> Angebot anfordern
-        </a>
-      </div>
-    </div>
-    <div class="hero-img">
-      <img src="mb.jpeg" alt="Professionelle Reinigung durch MB Reinigung & Service" />
-    </div>
-  </section>
-
-  <section id="about">
-    <h2 class="section-title">Über Uns</h2>
-    <p>MB Reinigung & Service ist für herausragende Reinigungsqualität in Bamberg und Umgebung. Unser Team aus erfahrenen Fachkräften verbindet deutsche Gründlichkeit mit modernsten Reinigungstechniken.</p>
-    <p>Wir verstehen, dass Sauberkeit mehr ist als nur Staubwischen – sie schafft Wohlbefinden, Professionalität und ein gesundes Umfeld. Daher gehen wir bei jedem Auftrag über die üblichen Standards hinaus.</p>
-    <p> </p>
-  </section>
-
-  <section id="services">
-    <h2 class="section-title">Unsere Leistungen</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <h3>Gebäudereinigung</h3>
-        <p>Komplette Reinigung von Gewerbeimmobilien mit individuell abgestimmten Konzepten für dauerhafte Sauberkeit.</p>
-      </div>
-      <div class="service-card">
-        <h3>Büroreinigung</h3>
-        <p>Tägliche oder wöchentliche Reinigung Ihrer Büroräume, angepasst an Ihre Arbeitszeiten und Bedürfnisse.</p>
-      </div>
-      <div class="service-card">
-        <h3>Fensterreinigung</h3>
-        <p>Streifenfreie Ergebnisse mit speziellen Techniken für Glasflächen aller Art, innen wie außen.</p>
-      </div>
-      <div class="service-card">
-        <h3>Treppenhausreinigung</h3>
-        <p>Gründliche Reinigung von Treppenhäusern, Fluren und Gemeinschaftsbereichen in Wohnanlagen.</p>
-      </div>
-      <div class="service-card">
-        <h3>Grundreinigung</h3>
-        <p>Intensive Tiefenreinigung für Neubezug, Renovierung oder als Saisonservice mit Spezialausrüstung.</p>
-      </div>
-      <div class="service-card">
-        <h3>Hausmeisterservice</h3>
-        <p>Umfassende Betreuung Ihrer Immobilie mit regelmäßigen Wartungs- und Kontrollarbeiten.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="benefits">
-    <h2 class="section-title">Ihre Vorteile</h2>
-    <div class="benefits">
-      <div class="benefit-item">
-        <span class="benefit-icon">✓</span>
-        <div>
-          <h3>Zuverlässigkeit</h3>
-          <p>Pünktlichkeit und Termintreue sind für uns selbstverständlich.</p>
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/80 glass border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-3 group">
+        <img src="Logo,Neu.png" alt="MB Reinigung &amp; Service Logo" class="logo h-10 w-auto drop-shadow-sm">
+        <div class="leading-tight">
+          <div class="font-semibold tracking-tight">MB Reinigung &amp; Service</div>
+          <div class="text-xs text-slate-500">Gebäudereinigung</div>
         </div>
-      </div>
-      <div class="benefit-item">
-        <span class="benefit-icon">✓</span>
-        <div>
-          <h3>Transparente Preise</h3>
-          <p>Klare Kostenstruktur ohne versteckte Gebühren.</p>
-        </div>
-      </div>
-      <div class="benefit-item">
-        <span class="benefit-icon">✓</span>
-        <div>
-          <h3>Ökologische Reinigung</h3>
-          <p>Umweltschonende Produkte für Ihre Gesundheit und die Natur.</p>
-        </div>
-      </div>
-      <div class="benefit-item">
-        <span class="benefit-icon">✓</span>
-        <div>
-          <h3>Individuelle Lösungen</h3>
-          <p>Maßgeschneiderte Reinigungskonzepte für Ihre Bedürfnisse.</p>
-        </div>
-      </div>
-      <div class="benefit-item">
-        <span class="benefit-icon">✓</span>
-        <div>
-          <h3>Qualifiziertes Personal</h3>
-          <p>Geschulte Fachkräfte mit langjähriger Erfahrung.</p>
-        </div>
-      </div>
-      <div class="benefit-item">
-        <span class="benefit-icon">✓</span>
-        <div>
-          <h3>Flexible Termine</h3>
-          <p>Anpassung an Ihre Arbeitszeiten, auch abends oder am Wochenende.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="kontakt">
-    <h2 class="section-title">Kontaktieren Sie uns</h2>
-    <p>Wir beraten Sie gerne persönlich und erstellen ein unverbindliches Angebot für Ihre individuellen Anforderungen.</p>
-    
-    <div class="contact-info">
-      <div class="contact-method">
-        <span class="contact-icon">📞</span>
-        <h3>Telefon</h3>
-        <a href="tel:01792081862">0179 2081862</a>
-      </div>
-      <div class="contact-method">
-        <span class="contact-icon">📧</span>
-        <h3>E-Mail</h3>
-        <a href="mailto:oabu2078@gmail.com">oabu2078@gmail.com</a>
-      </div>
-      <div class="contact-method">
-        <span class="contact-icon">🕒</span>
-        <h3>Servicezeiten</h3>
-        <p>Mo-Fr: 7-19 Uhr<br>Sa: 8-14 Uhr</p>
-      </div>
-      <div class="contact-method">
-        <span class="contact-icon">📍</span>
-        <h3>Geschäftsadresse</h3>
-        <p>Holzfeldweg, 36<br>96052 Bamberg</p>
-      </div>
-    </div>
-    
-    <div class="cta">
-      <a href="tel:01792081862">
-        <span>📞</span> Jetzt anrufen
       </a>
-      <a href="mailto:oabu2078@gmail.com">
-        <span>📧</span> E-Mail senden
-      </a>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="footer-content">
-    <div class="logo-container" style="justify-content: center;">
-      <img src="logo.png" alt="MB Reinigung & Service Logo" class="logo" style="height: 50px;" />
-      <div class="text-block">
-        <h1 style="color: white; font-size: 1.5rem;">MB Reinigung & Service</h1>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="#leistungen" class="hover:text-sky-600">Leistungen</a>
+        <a href="#warum" class="hover:text-sky-600">Warum wir</a>
+        <a href="#ablauf" class="hover:text-sky-600">Ablauf</a>
+        <a href="#referenzen" class="hover:text-sky-600">Referenzen</a>
+        <a href="#kontakt" class="hover:text-sky-600">Kontakt</a>
+        <a href="#impressum" class="hover:text-sky-600">Impressum</a>
+        <a href="#datenschutz" class="hover:text-sky-600">Datenschutz</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="#kontakt" class="hidden sm:inline-flex items-center rounded-xl border border-sky-200 bg-sky-50 px-3 py-2 text-sky-700 hover:bg-sky-100 transition">Kostenloses Angebot</a>
+        <button class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl border border-slate-200" id="mobileMenuBtn" aria-label="Menü">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
       </div>
     </div>
-    
-    <div class="footer-links">
-      <a href="#about">Über Uns</a>
-      <a href="#services">Leistungen</a>
-      <a href="#benefits">Vorteile</a>
-      <a href="#contact">Kontakt</a>
-      <a href="#">Impressum</a>
-      <a href="#">Datenschutz</a>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-200 bg-white">
+      <div class="max-w-7xl mx-auto px-4 py-3 grid gap-2 text-sm">
+        <a href="#leistungen" class="py-2">Leistungen</a>
+        <a href="#warum" class="py-2">Warum wir</a>
+        <a href="#ablauf" class="py-2">Ablauf</a>
+        <a href="#referenzen" class="py-2">Referenzen</a>
+        <a href="#kontakt" class="py-2">Kontakt</a>
+        <a href="#impressum" class="py-2">Impressum</a>
+        <a href="#datenschutz" class="py-2">Datenschutz</a>
+      </div>
     </div>
-    
-    <p>&copy; 2025 MB Reinigung & Service – Professionelle Reinigungsdienstleistungen in Bamberg</p>
-  </div>
-</footer>
+  </header>
 
+  <!-- Hero with background slideshow -->
+  <section id="home" class="hero">
+    <!-- Background slideshow images -->
+    <div class="slideshow" aria-hidden="true">
+      <img src="1.png" alt="" class="slide">
+      <img src="2.png" alt="" class="slide">
+      <img src="3.png" alt="" class="slide">
+      <img src="4.png" alt="" class="slide">
+    </div>
+    <!-- Gradient/overlay for readability -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/35 to-black/50"></div>
+
+    <!-- Foreground content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4">
+      <div class="max-w-2xl">
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight drop-shadow" data-aos="fade-up">
+          Sauberkeit, auf die Sie sich verlassen können.
+        </h1>
+        <p class="mt-5 text-lg text-slate-100/90 max-w-xl drop-shadow" data-aos="fade-up" data-aos-delay="150">
+          MB Reinigung &amp; Service steht für zuverlässige Unterhalts-, Büro- und Glasreinigung – transparent, pünktlich und mit Liebe zum Detail.
+        </p>
+        <div class="mt-8 flex items-center gap-3" data-aos="zoom-in" data-aos-delay="300">
+          <a href="#kontakt" class="inline-flex items-center rounded-xl bg-sky-600 px-5 py-3 text-white font-semibold shadow hover:bg-sky-700 transition transform hover:-translate-y-0.5">Kostenloses Angebot anfordern</a>
+          <a href="#leistungen" class="inline-flex items-center rounded-xl border border-white/70 px-5 py-3 font-semibold hover:bg-white/10 transition transform hover:-translate-y-0.5">Leistungen ansehen</a>
+        </div>
+        <div class="mt-8 flex items-center gap-6 text-sm text-slate-100/90" data-aos="fade-up" data-aos-delay="500">
+          <div class="flex items-center gap-2"><span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span> Geprüfte Qualität</div>
+          <div class="flex items-center gap-2"><span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span> Feste Ansprechpartner</div>
+          <div class="flex items-center gap-2"><span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span> Faire, transparente Preise</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leistungen -->
+  <section id="leistungen" class="py-20">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-4xl font-bold tracking-tight" data-aos="fade-up">Unsere Leistungen</h2>
+        <p class="mt-3 text-slate-600" data-aos="fade-up" data-aos-delay="150">Professionelle Dienstleistungen in Bamberg und Umgebung – transparent, pünktlich, gründlich.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-lg hover:bg-emerald-50 hover:border-emerald-200 transition transform hover:-translate-y-1">
+          <div class="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center mb-4 text-emerald-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 4h4l2 3h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a3 3 0 0 1-3-3V4z"/></svg>
+          </div>
+          <h3 class="font-semibold text-lg">Grundreinigung aller Arten</h3>
+          <p class="mt-2 text-sm text-slate-600">Gründliche Grundreinigung von Böden, Sanitärbereichen und Oberflächen.</p>
+        </div>
+
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-lg hover:bg-emerald-50 hover:border-emerald-200 transition transform hover:-translate-y-1">
+          <div class="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center mb-4 text-emerald-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 10l7-7m0 0v6m0-6h-6M3 21l8-8"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg">Glas- &amp; Fassadenreinigung</h3>
+          <p class="mt-2 text-sm text-slate-600">Streifenfreie Fenster, Rahmen und Fassaden – innen &amp; außen.</p>
+        </div>
+
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-lg hover:bg-emerald-50 hover:border-emerald-200 transition transform hover:-translate-y-1">
+          <div class="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center mb-4 text-emerald-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7h18M5 21h14a2 2 0 0 0 2-2V7H3v12a2 2 0 0 0 2 2z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg">Bau- &amp; Baureinigung</h3>
+          <p class="mt-2 text-sm text-slate-600">Bauzwischen- und Endreinigung nach Umbau oder Neubau.</p>
+        </div>
+
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-lg hover:bg-emerald-50 hover:border-emerald-200 transition transform hover:-translate-y-1">
+          <div class="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center mb-4 text-emerald-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </div>
+          <h3 class="font-semibold text-lg">Büro- &amp; Unterhaltsreinigung</h3>
+          <p class="mt-2 text-sm text-slate-600">Planbare, regelmäßige Reinigung für Büros und Praxen.</p>
+        </div>
+
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-lg hover:bg-emerald-50 hover:border-emerald-200 transition transform hover:-translate-y-1">
+          <div class="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center mb-4 text-emerald-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v12m6-6H6"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg">Umzüge</h3>
+          <p class="mt-2 text-sm text-slate-600">Unterstützung beim Umzug inklusive Reinigung auf Wunsch.</p>
+        </div>
+
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-lg hover:bg-emerald-50 hover:border-emerald-200 transition transform hover:-translate-y-1">
+          <div class="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center mb-4 text-emerald-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 4h4l2 3h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a3 3 0 0 1-3-3V4z"/></svg>
+          </div>
+          <h3 class="font-semibold text-lg">Haushaltsauflösung &amp; Entsorgung</h3>
+          <p class="mt-2 text-sm text-slate-600">Zuverlässige Auflösung und fachgerechte Entsorgung.</p>
+        </div>
+
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-lg hover:bg-emerald-50 hover:border-emerald-200 transition transform hover:-translate-y-1">
+          <div class="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center mb-4 text-emerald-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 10l7-7m0 0v6m0-6h-6M3 21l8-8"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg">Entrümpelung</h3>
+          <p class="mt-2 text-sm text-slate-600">Schnelle, saubere Entrümpelung von Wohnungen, Kellern und Lagern.</p>
+        </div>
+
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-lg hover:bg-emerald-50 hover:border-emerald-200 transition transform hover:-translate-y-1">
+          <div class="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center mb-4 text-emerald-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7h18M5 21h14a2 2 0 0 0 2-2V7H3v12a2 2 0 0 0 2 2z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg">Hausmeisterdienst</h3>
+          <p class="mt-2 text-sm text-slate-600">Kleine Reparaturen, Pflege und Sichtkontrollen rund ums Objekt.</p>
+        </div>
+
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-lg hover:bg-emerald-50 hover:border-emerald-200 transition transform hover:-translate-y-1">
+          <div class="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center mb-4 text-emerald-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </div>
+          <h3 class="font-semibold text-lg">Winterdienst</h3>
+          <p class="mt-2 text-sm text-slate-600">Räumen und Streuen für sichere Gehwege und Zufahrten.</p>
+        </div>
+
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-lg hover:bg-emerald-50 hover:border-emerald-200 transition transform hover:-translate-y-1">
+          <div class="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center mb-4 text-emerald-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v12m6-6H6"/></svg>
+          </div>
+          <h3 class="font-semibold text-lg">Teppichreinigung</h3>
+          <p class="mt-2 text-sm text-slate-600">Tiefenreinigung von Teppichen und Läufern.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Warum wir -->
+  <section id="warum" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="text-2xl md:text-4xl font-bold tracking-tight" data-aos="fade-up">Warum MB Reinigung &amp; Service?</h2>
+          <p class="mt-4 text-slate-600" data-aos="fade-up" data-aos-delay="150">Wir setzen auf klare Absprachen, feste Ansprechpartner und eine gründliche, dokumentierte Ausführung. So erhalten Sie dauerhaft beste Ergebnisse – ohne Aufwand.</p>
+          <ul class="mt-6 grid sm:grid-cols-2 gap-4 text-sm" data-aos="fade-up" data-aos-delay="250">
+            <li class="flex items-start gap-3"><span class="mt-1 w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 inline-flex items-center justify-center">✓</span><span><strong>Zuverlässig</strong> – pünktlich &amp; planbar</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 inline-flex items-center justify-center">✓</span><span><strong>Qualifiziert</strong> – geschultes Personal</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 inline-flex items-center justify-center">✓</span><span><strong>Transparent</strong> – faire Preise, klare Angebote</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 inline-flex items-center justify-center">✓</span><span><strong>Nachhaltig</strong> – auf Wunsch mit Eco-Reinigern</span></li>
+          </ul>
+        </div>
+        <div class="relative" data-aos="fade-left">
+          <div class="rounded-2xl overflow-hidden shadow-xl ring-1 ring-slate-200"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ablauf -->
+  <section id="ablauf" class="py-20">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-4xl font-bold tracking-tight" data-aos="fade-up">So einfach funktioniert's</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="rounded-2xl bg-white p-6 border border-slate-200 transform transition hover:-translate-y-1" data-aos="fade-up">
+          <div class="w-10 h-10 rounded-lg bg-sky-100 flex items-center justify-center mb-4 font-semibold text-sky-700">1</div>
+          <h3 class="font-semibold">Anfrage &amp; Beratung</h3>
+          <p class="mt-2 text-sm text-slate-600">Sie schildern kurz Ihr Objekt und Ihre Wünsche. Wir beraten Sie unverbindlich.</p>
+        </div>
+        <div class="rounded-2xl bg-white p-6 border border-slate-200 transform transition hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-10 h-10 rounded-lg bg-sky-100 flex items-center justify-center mb-4 font-semibold text-sky-700">2</div>
+          <h3 class="font-semibold">Vor-Ort-Termin &amp; Angebot</h3>
+          <p class="mt-2 text-sm text-slate-600">Wir besichtigen auf Wunsch Ihr Objekt und erstellen ein transparentes Angebot.</p>
+        </div>
+        <div class="rounded-2xl bg-white p-6 border border-slate-200 transform transition hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-10 h-10 rounded-lg bg-sky-100 flex items-center justify-center mb-4 font-semibold text-sky-700">3</div>
+          <h3 class="font-semibold">Reinigung &amp; Qualitätssicherung</h3>
+          <p class="mt-2 text-sm text-slate-600">Unsere Teams reinigen gründlich; regelmäßige Qualitätschecks inklusive.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Referenzen -->
+  <section id="referenzen" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-4xl font-bold tracking-tight" data-aos="fade-up">Kundenstimmen</h2>
+        <p class="mt-3 text-slate-600" data-aos="fade-up" data-aos-delay="150">Auszüge aus Rückmeldungen unserer Auftraggeber.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <figure class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm" data-aos="fade-up">
+          <blockquote class="text-slate-700">„Sehr zuverlässig und gründlich. Die Kommunikation ist schnell und freundlich.“</blockquote>
+          <figcaption class="mt-4 text-sm text-slate-500">— Praxis Dr. Beispiel</figcaption>
+        </figure>
+        <figure class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm" data-aos="fade-up" data-aos-delay="100">
+          <blockquote class="text-slate-700">„Top Ergebnisse bei der Glasreinigung – absolut empfehlenswert!“</blockquote>
+          <figcaption class="mt-4 text-sm text-slate-500">— Bürohaus Muster GmbH</figcaption>
+        </figure>
+        <figure class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm" data-aos="fade-up" data-aos-delay="200">
+          <blockquote class="text-slate-700">„Flexibel, pünktlich, fair. Genau was wir gesucht haben.“</blockquote>
+          <figcaption class="mt-4 text-sm text-slate-500">— Wohnanlage Sonnenhof</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="rounded-2xl bg-gradient-to-br from-sky-600 to-sky-500 text-white p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-6" data-aos="zoom-in">
+        <div>
+          <h3 class="text-2xl md:text-3xl font-bold">Bereit für ein Angebot?</h3>
+          <p class="mt-2 text-sky-100">Schildern Sie uns Ihr Objekt – wir melden uns schnellstmöglich.</p>
+        </div>
+        <a href="#kontakt" class="inline-flex items-center rounded-xl bg-white/90 px-5 py-3 font-semibold text-sky-700 hover:bg-white transition transform hover:-translate-y-0.5">Kontakt aufnehmen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontakt -->
+  <section id="kontakt" class="py-20">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid lg:grid-cols-2 gap-10">
+        <div data-aos="fade-right">
+          <h2 class="text-2xl md:text-4xl font-bold tracking-tight">Kontakt</h2>
+          <p class="mt-4 text-slate-600">Wir freuen uns auf Ihre Anfrage. Nutzen Sie das Formular oder kontaktieren Sie uns direkt.</p>
+          <div class="mt-6 space-y-3 text-sm">
+            <div class="flex items-center gap-3"><span class="w-8 h-8 rounded-lg bg-sky-100 inline-flex items-center justify-center">📍</span><span>Holzfeldweg 36, 96052 Bamberg</span></div>
+            <div class="flex items-center gap-3"><span class="w-8 h-8 rounded-lg bg-sky-100 inline-flex items-center justify-center">☎️</span><a href="tel:+4999999999" class="hover:underline">0179 2081862</a></div>
+            <div class="flex items-center gap-3"><span class="w-8 h-8 rounded-lg bg-sky-100 inline-flex items-center justify-center">✉️</span><a href="mailto:kontakt@mb-reinigung-bamberg.de" class="hover:underline">kontakt@mb-reinigung-bamberg.de</a></div>
+            <div class="flex items-center gap-3"><span class="w-8 h-8 rounded-lg bg-sky-100 inline-flex items-center justify-center">🕒</span><span>Mo–Sa: 08:00–20:00</span></div>
+
+            <div class="mt-6 rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+              <iframe title="Karte: Holzfeldweg 36, 96052 Bamberg" src="https://www.google.com/maps?q=Holzfeldweg%2036%2C%2096052%20Bamberg&output=embed" width="100%" height="320" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <form id="contactForm" class="rounded-2xl bg-white p-6 border border-slate-200 shadow-sm" data-aos="zoom-in">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium">Vor- &amp; Nachname *</label>
+                <input type="text" name="name" required class="mt-1 w-full rounded-xl border-slate-300 focus:border-sky-500 focus:ring-sky-500" placeholder="Max Beispiel" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium">E-Mail *</label>
+                <input type="email" name="email" required class="mt-1 w-full rounded-xl border-slate-300 focus:border-sky-500 focus:ring-sky-500" placeholder="max@example.com" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium">Telefon</label>
+                <input type="tel" name="phone" class="mt-1 w-full rounded-xl border-slate-300 focus:border-sky-500 focus:ring-sky-500" placeholder="+49 ..." />
+              </div>
+              <div>
+                <label class="block text-sm font-medium">Objektgröße</label>
+                <input type="text" name="size" class="mt-1 w-full rounded-xl border-slate-300 focus:border-sky-500 focus:ring-sky-500" placeholder="z. B. 450 m²" />
+              </div>
+              <div class="sm:col-span-2">
+                <label class="block text-sm font-medium">Nachricht *</label>
+                <textarea name="message" required rows="5" class="mt-1 w-full rounded-xl border-slate-300 focus:border-sky-500 focus:ring-sky-500" placeholder="Beschreiben Sie kurz Ihr Anliegen..."></textarea>
+              </div>
+              <div class="sm:col-span-2 flex items-start gap-3">
+                <input id="privacy" type="checkbox" required class="mt-1 rounded border-slate-300 text-sky-600 focus:ring-sky-500" />
+                <label for="privacy" class="text-sm text-slate-600">Ich habe die <a href="#datenschutz" class="underline">Datenschutzhinweise</a> gelesen und bin mit der Verarbeitung meiner Daten einverstanden.</label>
+              </div>
+              <div class="sm:col-span-2 flex items-center gap-3">
+                <button type="submit" class="inline-flex items-center rounded-xl bg-sky-600 px-5 py-3 text-white font-semibold hover:bg-sky-700 transition transform hover:-translate-y-0.5">Absenden</button>
+                <p id="formStatus" class="text-sm text-slate-600 hidden">Vielen Dank! Ihre Nachricht wurde übermittelt.</p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-100">
+    <div class="max-w-7xl mx-auto px-4 py-12 grid md:grid-cols-4 gap-8">
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="Logo,Neu.png" alt="" class="h-9 w-9 rounded-lg bg-white/10 p-1">
+          <div class="font-semibold">MB Reinigung &amp; Service</div>
+        </div>
+        <p class="mt-4 text-slate-400 text-sm">Professionelle Gebäudereinigung für Gewerbe &amp; Wohnanlagen – zuverlässig, gründlich, fair.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold">Unternehmen</h4>
+        <ul class="mt-3 space-y-2 text-sm text-slate-300">
+          <li><a href="#leistungen" class="hover:underline">Leistungen</a></li>
+          <li><a href="#warum" class="hover:underline">Warum wir</a></li>
+          <li><a href="#referenzen" class="hover:underline">Referenzen</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold">Rechtliches</h4>
+        <ul class="mt-3 space-y-2 text-sm text-slate-300">
+          <li><a href="#impressum" class="hover:underline">Impressum</a></li>
+          <li><a href="#datenschutz" class="hover:underline">Datenschutz</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold">Kontakt</h4>
+        <ul class="mt-3 space-y-2 text-sm text-slate-300">
+          <li>Holzfeldweg 36, 96052 Bamberg</li>
+          <li>Tel.: <a href="tel:+4999999999" class="hover:underline">0179 2081862</a></li>
+          <li>E-Mail: <a href="mailto:kontakt@mb-reinigung-bamberg.de" class="hover:underline">kontakt@mb-reinigung-bamberg.de</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 py-4 text-sm text-slate-400 flex items-center justify-between">
+        <p>© <span id="year"></span> MB Reinigung &amp; Service. Alle Rechte vorbehalten.</p>
+        <a href="#home" class="hover:underline">Nach oben ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Impressum (Platzhalter) -->
+  <section id="impressum" class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tight" data-aos="fade-up">Impressum</h2>
+      <div class="mt-4 prose prose-slate max-w-none" data-aos="fade-up" data-aos-delay="150">
+        <p><strong>MB Reinigung &amp; Service</strong><br>
+        Verantwortlich: MB Reinigung &amp; Service<br>
+        Holzfeldweg 36, 96052 Bamberg<br>
+        Telefon: 0179&nbsp;2081862 &middot; E-Mail: kontakt@mb-reinigung-bamberg.de</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Datenschutz (Platzhalter) -->
+  <section id="datenschutz" class="py-16">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tight" data-aos="fade-up">Datenschutz</h2>
+      <div class="mt-4 prose prose-slate max-w-none" data-aos="fade-up" data-aos-delay="150">
+        <p>Wir verarbeiten Ihre Daten ausschließlich zur Bearbeitung Ihrer Anfrage. Weitere Informationen zu Art, Umfang und Zweck der Datenverarbeitung sowie Ihren Rechten finden Sie hier.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile menu toggle
+    const btn = document.getElementById('mobileMenuBtn');
+    const menu = document.getElementById('mobileMenu');
+    if (btn) btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple form handling (client-side demo)
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        status.classList.remove('hidden');
+        form.reset();
+        status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    }
+  </script>
+
+  <!-- AOS (Animate On Scroll) -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 60
+    });
+  </script>
 </body>
 </html>
