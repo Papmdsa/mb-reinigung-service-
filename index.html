@@ -326,39 +326,146 @@
 
         <div>
           <!-- FORM sendet an Formspree -->
-          <form id="contactForm" action="https://formspree.io/f/xpwjnnjd" method="POST" class="rounded-2xl bg-white p-6 border border-slate-200 shadow-sm" data-aos="zoom-in">
-            <input type="hidden" name="_subject" value="Neue Anfrage über das Kontaktformular" />
-            <div class="grid sm:grid-cols-2 gap-4">
-              <div>
-                <label class="block text-sm font-medium">Vor- &amp; Nachname *</label>
-                <input type="text" name="name" required class="mt-1 w-full rounded-xl border-slate-300 focus:border-sky-500 focus:ring-sky-500" placeholder="Max Beispiel" />
-              </div>
-              <div>
-                <label class="block text-sm font-medium">E-Mail *</label>
-                <input type="email" name="email" required class="mt-1 w-full rounded-xl border-slate-300 focus:border-sky-500 focus:ring-sky-500" placeholder="max@example.com" />
-              </div>
-              <div>
-                <label class="block text-sm font-medium">Telefon</label>
-                <input type="tel" name="phone" class="mt-1 w-full rounded-xl border-slate-300 focus:border-sky-500 focus:ring-sky-500" placeholder="+49 ..." />
-              </div>
-              <div>
-                <label class="block text-sm font-medium">Objektgröße</label>
-                <input type="text" name="size" class="mt-1 w-full rounded-xl border-slate-300 focus:border-sky-500 focus:ring-sky-500" placeholder="z. B. 450 m²" />
-              </div>
-              <div class="sm:col-span-2">
-                <label class="block text-sm font-medium">Nachricht *</label>
-                <textarea name="message" required rows="5" class="mt-1 w-full rounded-xl border-slate-300 focus:border-sky-500 focus:ring-sky-500" placeholder="Beschreiben Sie kurz Ihr Anliegen..."></textarea>
-              </div>
-              <div class="sm:col-span-2 flex items-start gap-3">
-                <input id="privacy" type="checkbox" required class="mt-1 rounded border-slate-300 text-sky-600 focus:ring-sky-500" />
-                <label for="privacy" class="text-sm text-slate-600">Ich habe die <a href="#datenschutz" class="underline">Datenschutzhinweise</a> gelesen und bin mit der Verarbeitung meiner Daten einverstanden.</label>
-              </div>
-              <div class="sm:col-span-2 flex items-center gap-3">
-                <button type="submit" class="inline-flex items-center rounded-xl bg-sky-600 px-5 py-3 text-white font-semibold hover:bg-sky-700 transition transform hover:-translate-y-0.5">Absenden</button>
-                <p id="formStatus" class="text-sm text-slate-600 hidden">Vielen Dank! Ihre Nachricht wurde übermittelt.</p>
-              </div>
-            </div>
-          </form>
+          <form id="contactForm" action="https://formspree.io/f/xpwjnnjd" method="POST"
+      class="rounded-2xl bg-white p-6 border border-slate-200 shadow-sm" data-aos="zoom-in">
+
+  <input type="hidden" name="_subject" value="Neue Anfrage über das Kontaktformular" />
+
+  <!-- Basisdaten -->
+  <div class="grid sm:grid-cols-2 gap-5">
+    <div>
+      <label class="block text-sm font-medium">Vor- &amp; Nachname *</label>
+      <input type="text" name="name" required
+             class="mt-1 w-full h-11 rounded-xl border border-slate-300 px-3
+                    focus:border-sky-500 focus:ring-sky-500" placeholder="Max Beispiel" />
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium">E-Mail *</label>
+      <input type="email" name="email" required
+             class="mt-1 w-full h-11 rounded-xl border border-slate-300 px-3
+                    focus:border-sky-500 focus:ring-sky-500" placeholder="max@example.com" />
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium">Telefon</label>
+      <input type="tel" name="phone"
+             class="mt-1 w-full h-11 rounded-xl border border-slate-300 px-3
+                    focus:border-sky-500 focus:ring-sky-500" placeholder="+49 ..." />
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium">Objektgröße</label>
+      <input type="text" name="size"
+             class="mt-1 w-full h-11 rounded-xl border border-slate-300 px-3
+                    focus:border-sky-500 focus:ring-sky-500" placeholder="z. B. 450 m²" />
+    </div>
+
+    <!-- Art der Anfrage -->
+    <div class="sm:col-span-2">
+      <label class="block text-sm font-medium">Art der Anfrage *</label>
+      <select id="serviceType" name="service" required
+              class="mt-1 w-full h-11 rounded-xl border border-slate-300 px-3
+                     focus:border-sky-500 focus:ring-sky-500">
+        <option>Reinigung (Unterhalt/Grund/Glas …)</option>
+        <option>Transport</option>
+        <option>Umzug</option>
+        <option>Entrümpelung</option>
+        <option>Haushaltsauflösung</option>
+        <option>Hausmeisterdienst</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- SCHÖNE Karte: Details für Transport/Umzug -->
+  <div id="transportCard" hidden
+       class="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-4">
+    <div class="flex items-center gap-2 mb-3">
+      <span class="inline-flex w-8 h-8 items-center justify-center rounded-lg bg-emerald-100 text-emerald-700">🚚</span>
+      <h4 class="font-semibold">Details zu Transport / Umzug</h4>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div>
+        <label class="block text-sm font-medium">Abholadresse</label>
+        <input type="text" name="pickup_address"
+               class="mt-1 w-full h-11 rounded-xl border border-slate-300 px-3
+                      focus:border-sky-500 focus:ring-sky-500"
+               placeholder="Straße, PLZ Ort" />
+      </div>
+      <div>
+        <label class="block text-sm font-medium">Lieferadresse</label>
+        <input type="text" name="delivery_address"
+               class="mt-1 w-full h-11 rounded-xl border border-slate-300 px-3
+                      focus:border-sky-500 focus:ring-sky-500"
+               placeholder="Straße, PLZ Ort" />
+      </div>
+      <div>
+        <label class="block text-sm font-medium">Termin (gewünscht)</label>
+        <input type="date" name="move_date"
+               class="mt-1 w-full h-11 rounded-xl border border-slate-300 px-3
+                      focus:border-sky-500 focus:ring-sky-500" />
+      </div>
+      <div>
+        <label class="block text-sm font-medium">Uhrzeit</label>
+        <input type="time" name="move_time"
+               class="mt-1 w-full h-11 rounded-xl border border-slate-300 px-3
+                      focus:border-sky-500 focus:ring-sky-500" />
+      </div>
+      <div>
+        <label class="block text-sm font-medium">Etage</label>
+        <input type="text" name="floor"
+               class="mt-1 w-full h-11 rounded-xl border border-slate-300 px-3
+                      focus:border-sky-500 focus:ring-sky-500"
+               placeholder="z. B. 3. OG" />
+      </div>
+      <div>
+        <label class="block text-sm font-medium">Aufzug vorhanden?</label>
+        <select name="elevator"
+                class="mt-1 w-full h-11 rounded-xl border border-slate-300 px-3
+                       focus:border-sky-500 focus:ring-sky-500">
+          <option>Ja</option>
+          <option>Nein</option>
+        </select>
+      </div>
+    </div>
+
+    <p class="text-xs text-slate-500 mt-3">
+      Diese Angaben helfen uns, ein genaues Angebot zu berechnen.
+    </p>
+  </div>
+
+  <!-- Nachricht -->
+  <div class="mt-6">
+    <label class="block text-sm font-medium">Nachricht *</label>
+    <textarea name="message" required rows="5"
+              class="mt-1 w-full min-h-[140px] rounded-xl border border-slate-300 px-3 py-2
+                     focus:border-sky-500 focus:ring-sky-500"
+              placeholder="Beschreiben Sie kurz Ihr Anliegen..."></textarea>
+  </div>
+
+  <!-- Datenschutz -->
+  <div class="mt-6 flex items-start gap-3">
+    <input id="privacy" type="checkbox" required
+           class="mt-1 rounded border-slate-300 text-sky-600 focus:ring-sky-500" />
+    <label for="privacy" class="text-sm text-slate-600">
+      Ich habe die <a href="#datenschutz" class="underline">Datenschutzhinweise</a> gelesen und bin mit der Verarbeitung meiner Daten einverstanden.
+    </label>
+  </div>
+
+  <!-- Absenden -->
+  <div class="mt-6 flex items-center gap-3">
+    <button type="submit"
+            class="inline-flex items-center rounded-xl bg-sky-600 px-5 py-3 text-white font-semibold
+                   hover:bg-sky-700 transition transform hover:-translate-y-0.5">
+      Absenden
+    </button>
+    <p id="formStatus" class="text-sm text-emerald-700 hidden">
+      Vielen Dank! Ihre Nachricht wurde übermittelt.
+    </p>
+  </div>
+</form>
+
         </div>
       </div>
     </div>
@@ -465,6 +572,18 @@
       });
     }
   </script>
+<script>
+  // Karte für Transport/Umzug nur bei passender Auswahl zeigen
+  const serviceType = document.getElementById('serviceType');
+  const transportCard = document.getElementById('transportCard');
+  function toggleTransportCard() {
+    if (!serviceType || !transportCard) return;
+    const v = serviceType.value;
+    transportCard.hidden = !(v === 'Transport' || v === 'Umzug');
+  }
+  serviceType?.addEventListener('change', toggleTransportCard);
+  toggleTransportCard(); // Initial
+</script>
 
   <!-- AOS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
