@@ -527,33 +527,57 @@
   </section>
 
   <!-- Scripts -->
-  <script>
-(function(d, id){
-  var s = d.createElement('script');
-  s.async = 1;
-  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
-  (d.head || d.getElementsByTagName('head')[0]).appendChild(s);
-
-  // طبقة البيانات + الموافقة الافتراضية (مغلقة)
+ <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H0F6RBRML0"></script>
+<script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  window.gtag = gtag;
 
-  gtag('consent', 'default', {
-    'analytics_storage': 'denied',
-    'ad_storage': 'denied',
-    'functionality_storage': 'denied',
-    'security_storage': 'granted'
-  });
+  // مؤقتًا للاختبار: فعّل الجمع فورًا
+  gtag('consent', 'default', { 'analytics_storage': 'granted' });
 
   gtag('js', new Date());
-  gtag('config', id, { anonymize_ip: true });
-})(document, 'G-H0F6RBRML0');
+  gtag('config', 'G-H0F6RBRML0', { anonymize_ip: true, debug_mode: true });
 </script>
+
 <script>
   function grantAnalyticsConsent(){
     gtag('consent','update',{'analytics_storage':'granted'});
   }
+</script>
+<script>
+  // عند نجاح إرسال نموذج Formspree
+  (function(){
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+    if (!form) return;
+    form.addEventListener('submit', async (e)=>{
+      if (window.FormData && window.fetch) {
+        e.preventDefault();
+        const data = new FormData(form);
+        try {
+          const res = await fetch(form.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: data });
+          if (res.ok) {
+            status.textContent = 'Vielen Dank! Ihre Nachricht wurde übermittelt.';
+            status.classList.remove('hidden');
+            // حدث GA4
+            window.gtag && gtag('event','generate_lead',{form_id:'contactForm', method:'formspree'});
+            form.reset();
+          }
+        } catch(e){}
+      }
+    });
+  })();
+
+  // تتبع نقرات الهاتف/الإيميل
+  (function(){
+    document.querySelectorAll('a[href^="tel:"]').forEach(a=>{
+      a.addEventListener('click', ()=> window.gtag && gtag('event','click_contact',{type:'phone'}));
+    });
+    document.querySelectorAll('a[href^="mailto:"]').forEach(a=>{
+      a.addEventListener('click', ()=> window.gtag && gtag('event','click_contact',{type:'email'}));
+    });
+  })();
 </script>
 
   <script>
