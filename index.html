@@ -528,6 +528,35 @@
 
   <!-- Scripts -->
   <script>
+(function(d, id){
+  var s = d.createElement('script');
+  s.async = 1;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+  (d.head || d.getElementsByTagName('head')[0]).appendChild(s);
+
+  // طبقة البيانات + الموافقة الافتراضية (مغلقة)
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'functionality_storage': 'denied',
+    'security_storage': 'granted'
+  });
+
+  gtag('js', new Date());
+  gtag('config', id, { anonymize_ip: true });
+})(document, 'G-XXXXXXXXXX');
+</script>
+<script>
+  function grantAnalyticsConsent(){
+    gtag('consent','update',{'analytics_storage':'granted'});
+  }
+</script>
+
+  <script>
     // Mobile menu toggle
     const btn = document.getElementById('mobileMenuBtn');
     const menu = document.getElementById('mobileMenu');
